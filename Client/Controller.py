@@ -73,8 +73,22 @@ def init():
                 logger.warning("No Joystick Detected")
             try:
                 if not connected and joy:
+                    #sock = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+                    #sock.connect((bluetoothAddress, 1))
+                    uuid = "42b58f76-b26d-11ea-b733-cb205305bc99"
+                    service_matches = bluetooth.find_service( name="SampleServer")
+
+                    if len(service_matches) == 0:
+                        print("couldn't find the SampleServer service")
+                        sys.exit(0)
+
+                    first_match = service_matches[0]
+                    port = first_match["port"]
+                    name = first_match["name"]
+                    host = first_match["host"]
+                    print("Service Matches " + str(service_matches[0]))
                     sock = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
-                    sock.connect((bluetoothAddress, 1))
+                    sock.connect((host, port))
                     
                     sock.setblocking(False)
                     joy = False
