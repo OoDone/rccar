@@ -126,7 +126,7 @@ def stopRobot():
 
 def squareDown():
     if connected:
-        sock.send("xd")
+        sock.send("ca")
     else:
         logger.info("Client: Not Connected To Robot")
 
@@ -135,7 +135,12 @@ def squareUp():
         sock.send("xd")
     else:
         logger.info("Client: Not Connected To Robot")
-
+def triangleDown():
+    if connected:
+        sock.send("ar")
+    else:
+        logger.info("Client: Not Connected To Robot")
+        
 init()
 
 def loop():
@@ -182,10 +187,10 @@ while connected:
                      enableRobot()
                      circle = True
                 if j.get_button(2) and not triangle: #Triangle
-                    #DOES NOTHING
+                    triangleDown()
                     triangle = True
                 if j.get_button(3) and not square: #Square
-                    #DOES NOTHING
+                    squareDown()
                     square = True
             elif event.type == pygame.JOYBUTTONUP:
                 if x and not j.get_button(0): #X
