@@ -1,0 +1,4 @@
+2024/01/02 18:40:53.346 Logger INFO | Logger object created successfully..
+2024/01/02 18:40:53.346 BluetoothServer INFO | Robot | Code: BluetoothServer.py Initialized.
+2024/01/02 18:40:53.354 BluetoothServer INFO | Bluetooth Bind: Listening on port 0
+2024/01/02 18:40:53.356 BluetoothServer INFO | Bluetooth: Advertising Service!
