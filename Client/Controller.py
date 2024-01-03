@@ -86,9 +86,9 @@ def init():
                     port = first_match["port"]
                     name = first_match["name"]
                     host = first_match["host"]
-                    
+                    print("Service Matches " + str(service_matches[0]))
                     sock = bluetooth.BluetoothSocket( bluetooth.RFCOMM )
-                    sock.connect((host, port))
+                    sock.connect((host, 1))
                     
                     sock.setblocking(False)
                     joy = False
